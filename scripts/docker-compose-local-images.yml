@@ -1,0 +1,12 @@
+# Start all the storage containers locally without running the application inside docker
+version: '2'
+services:
+  db:
+    image: postgres:10
+    environment:
+      POSTGRES_USER: gluten_free
+      POSTGRES_PASSWORD: gluten_free
+    ports:
+      - "5432:5432"
+    volumes:
+      - ${HOME}/.scrape/db/data:/var/lib/postgresql/data
